@@ -1,10 +1,5 @@
 
 
-
-History
--------
-
-
 The Did-control project is supported by Star2billing S.L. 
 For more information, see http://www.star2billing.com
 
