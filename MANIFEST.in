@@ -1,0 +1,11 @@
+global-exclude *.pyc
+
+include README.rst
+include COPYING
+include did_control/requirements.txt
+
+recursive-include did_control *
+    
+exclude did_control/__init__.py
+exclude did_control/settings.py
+exclude did_control/manage.py
