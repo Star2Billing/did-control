@@ -1,0 +1,8 @@
+*.pyc
+*dilla*
+*.db
+*nbproject*
+*devserver*
+*.idea*
+test.db
+did_control/settings_local.py
