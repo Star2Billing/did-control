@@ -1,0 +1,55 @@
+:Version: 0.1.0
+:Keywords: django, python
+
+--
+
+.. _did-control-synopsis:
+
+Did-control is an open source project written in Python, using the ``Django`` Framework.
+
+The license is MIT.
+
+
+
+.. _overview:
+
+Overview
+========
+
+Did-control is a Django application
+
+
+.. _usage:
+
+Usage
+=====
+
+
+
+.. _contributing:
+
+Contributing
+============
+
+Development of did-control takes place on Github:
+
+https://github.com/Star2Billing/did-control
+
+If you don’t like Github and Git you’re welcome to send regular patches.
+
+Bug tracker: https://github.com/Star2Billing/did-control/issues
+
+
+.. _documentation:
+
+Documentation
+=============
+
+Extensive documentation is available made with the excellent Sphinx program :
+http://did-control.readthedocs.org
+
+
+
+The Did-control project is supported by Star2Billing S.L.
+
+For more information, see http://www.star2billing.com
