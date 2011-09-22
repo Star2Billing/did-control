@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:apigee="http://api.apigee.com/wadl/2010/07/" 
+  xmlns="http://wadl.dev.java.net/2009/02"
+  xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd"> 
+ 
+  <!-- Base defines the domain and base path of the endpoint --> 
+  <resources base="http://areski:areski@3qma.localtunnel.com/api/app"> 
+ 
+    <resource path="did"> 
+      <!-- Resources that are the same but have multiple verbs can have multiple method items in the WADL. --> 
+
+      <!-- Methods should each have a unique id. --> 
+      <!-- The attribute displayName can be used to control the name that appears in the list in the Console. --> 
+      <method id="did_list" name="GET" apigee:displayName="DIDlist"> 
+
+        <!-- Tags are used to organize the list of methods. Primary tag will list the default placement. --> 
+        <apigee:tags> 
+          <apigee:tag primary="true">DID List</apigee:tag> 
+          <apigee:tag>DIDlist</apigee:tag> 
+        </apigee:tags> 
+ 
+        <!-- Is authentication required for this method? --> 
+        <apigee:authentication required="true" /> 
+ 
+        <!-- Example element is used to specify the sample URL to display in the Console's request URL field. --> 
+        <apigee:example url="/did/?format=json" /> 
+ 
+        <!-- The content of the doc element is shown as a tooltip in the Console's method list. --> 
+	    <doc title="" apigee:url="http://areski:areski@3qma.localtunnel.com/api/app/did"> 
+		  Sample test
+	    </doc> 	
+	    <request>
+		<param name="format" required="true" type="xsd:string" style="query" default="json"> 
+	      	<!-- Docs are optional, but recommended. --> 
+	      		<doc>JSON default format</doc> 
+	        </param> 		   		   
+	    </request> 	
+      </method> 
+    </resource>  
+	
+  </resources> 
+</application>
