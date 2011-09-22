@@ -12,7 +12,11 @@ Did-control is a django based application, so the major requirements are :
     - python >= 2.4
     - Apache / http server with WSGI modules
     - Django Framework >= 1.3
-    
+    - django-countries >= 1.0.2
+    - docutils >= 0.8
+    - django-tastypie
+    - django-piston
+     
 
 Coding Conventions
 ------------------
