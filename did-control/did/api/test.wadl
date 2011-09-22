@@ -6,7 +6,7 @@
   xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd"> 
  
   <!-- Base defines the domain and base path of the endpoint --> 
-  <resources base="http://areski:areski@3qma.localtunnel.com/api/app"> 
+  <resources base="http://3qma.localtunnel.com/api/app"> 
  
     <resource path="did"> 
       <!-- Resources that are the same but have multiple verbs can have multiple method items in the WADL. --> 
@@ -28,7 +28,7 @@
         <apigee:example url="/did/?format=json" /> 
  
         <!-- The content of the doc element is shown as a tooltip in the Console's method list. --> 
-	    <doc title="" apigee:url="http://areski:areski@3qma.localtunnel.com/api/app/did"> 
+	    <doc title="" apigee:url="http://3qma.localtunnel.com/api/app/did"> 
 		  Sample test
 	    </doc> 	
 	    <request>
