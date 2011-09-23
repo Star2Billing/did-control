@@ -9,17 +9,46 @@ from did.models import *
 
 class DidCountryResource(ModelResource):
     """
-    ``To create``::
+    **Create**::
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X POST --data '{"country": "IN", "active": "1"}' http://localhost:8000/api/app/country/
 
+    Response::
 
-    ``To read/get``::
+        HTTP/1.0 201 CREATED
+        Date: Fri, 23 Sep 2011 06:08:34 GMT
+        Server: WSGIServer/0.1 Python/2.7.1+
+        Vary: Accept-Language, Cookie
+        Content-Type: text/html; charset=utf-8
+        Location: http://localhost:8000/api/app/country/1/
+        Content-Language: en-us
+
+
+    **Read**::
 
         curl -u username:password -H 'Accept: application/json' http://localhost:8000/api/app/country/?format=json
 
+    Response::
 
-    ``To update``::
+        {
+           "meta":{
+              "limit":20,
+              "next":null,
+              "offset":0,
+              "previous":null,
+              "total_count":4
+           },
+           "objects":[
+              {
+                 "active":true,
+                 "country":"IN",
+                 "id":"1",
+                 "resource_uri":"/api/app/country/1/"
+              },
+           ]
+        }
+
+    **Update**::
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X PUT --data '{"country": "IN", "active": "1"}' http://localhost:8000/api/app/country/1/
 
