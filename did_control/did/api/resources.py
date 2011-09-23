@@ -48,60 +48,174 @@ class DidCountryResource(ModelResource):
            ]
         }
 
+
     **Update**::
 
-        curl -u username:password --dump-header - -H "Content-Type: application/json" -X PUT --data '{"country": "IN", "active": "1"}' http://localhost:8000/api/app/country/1/
+        curl -u username:password --dump-header - -H "Content-Type: application/json" -X PUT --data '{"country": "IN", "active": 1}' http://localhost:8000/api/app/country/1/
+
+    Response::
+
+        HTTP/1.0 204 NO CONTENT
+        Date: Fri, 23 Sep 2011 06:46:12 GMT
+        Server: WSGIServer/0.1 Python/2.7.1+
+        Vary: Accept-Language, Cookie
+        Content-Length: 0
+        Content-Type: text/html; charset=utf-8
+        Content-Language: en-us
 
 
-    ``To delete``::
+    **Delete**::
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X DELETE  http://localhost:8000/api/app/country/1/
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X DELETE  http://localhost:8000/api/app/country/
 
+    Response::
 
-    ``To search``::
+        HTTP/1.0 204 NO CONTENT
+        Date: Fri, 23 Sep 2011 06:48:03 GMT
+        Server: WSGIServer/0.1 Python/2.7.1+
+        Vary: Accept-Language, Cookie
+        Content-Length: 0
+        Content-Type: text/html; charset=utf-8
+        Content-Language: en-us
+
+    **Search**::
 
         curl -u username:password -H 'Accept: application/json' http://localhost:8000/api/app/country/?country=IN
+
+    Response::
+
+        {
+           "meta":{
+              "limit":20,
+              "next":null,
+              "offset":0,
+              "previous":null,
+              "total_count":1
+           },
+           "objects":[
+              {
+                 "active":true,
+                 "country":"IN",
+                 "id":"2",
+                 "resource_uri":"/api/app/country/2/"
+              }
+           ]
+        }
     """
     class Meta:
         queryset = DidCountry.objects.all()
         resource_name = 'country'
+        filtering = {
+            'country': ALL,
+            'active': ALL,
+        }
         authorization = Authorization()
         authentication = BasicAuthentication()
 
 
 class DidResource(ModelResource):
     """
-    ``To create``::
+    **Create**::
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X POST --data '{"did": "123", "label": "xyz", "country": "IN", "active": "1"}' http://localhost:8000/api/app/did/
 
+    Response::
 
-    ``To read/get``::
+        HTTP/1.0 201 CREATED
+        Date: Fri, 23 Sep 2011 06:08:34 GMT
+        Server: WSGIServer/0.1 Python/2.7.1+
+        Vary: Accept-Language, Cookie
+        Content-Type: text/html; charset=utf-8
+        Location: http://localhost:8000/api/app/country/1/
+        Content-Language: en-us
+
+
+    **Read**::
 
         curl -u username:password -H 'Accept: application/json' http://localhost:8000/api/app/did/?format=json
 
+    Response::
 
-    ``To update``::
+        {
+           "meta":{
+              "limit":20,
+              "next":null,
+              "offset":0,
+              "previous":null,
+              "total_count":1
+           },
+           "objects":[
+              {
+                 "active":true,
+                 "did":"1",
+                 "id":"1",
+                 "label":"xyz",
+                 "resource_uri":"/api/app/did/1/",
+                 "createdon":"2011-09-20T07:25:23",
+                 "updatedon":"2011-09-20T07:25:23"
+              }
+           ]
+        }
+
+
+    **Update**::
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X PUT --data '{"did": "123", "label": "xyz", "country": "IN", "active": "1"}' http://localhost:8000/api/app/did/1/
 
+    Response::
 
-    ``To delete``::
+        HTTP/1.0 204 NO CONTENT
+        Date: Fri, 23 Sep 2011 06:46:12 GMT
+        Server: WSGIServer/0.1 Python/2.7.1+
+        Vary: Accept-Language, Cookie
+        Content-Length: 0
+        Content-Type: text/html; charset=utf-8
+        Content-Language: en-us
+
+
+    **Delete**::
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X DELETE  http://localhost:8000/api/app/did/1/
 
         curl -u username:password --dump-header - -H "Content-Type: application/json" -X DELETE  http://localhost:8000/api/app/did/
 
+    Response::
 
-    ``To search``::
+        HTTP/1.0 204 NO CONTENT
+        Date: Fri, 23 Sep 2011 06:46:12 GMT
+        Server: WSGIServer/0.1 Python/2.7.1+
+        Vary: Accept-Language, Cookie
+        Content-Length: 0
+        Content-Type: text/html; charset=utf-8
+        Content-Language: en-us
+
+
+    **Search**::
 
         curl -u username:password -H 'Accept: application/json' http://localhost:8000/api/app/did/?did=123
+
+    Response::
+
+        {
+           "meta":{
+              "limit":20,
+              "next":null,
+              "offset":0,
+              "previous":null,
+              "total_count":0
+           },
+           "objects":[]
+        }
     """
     class Meta:
         queryset = Did.objects.all()
         resource_name = 'did'
+        filtering = {
+            'did': ALL,
+            'country': ALL,
+        }
         authorization = Authorization()
         authentication = BasicAuthentication()
 
